@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiPagos | Perfil del cliente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-role="user" data-page="profile">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand-badge">
+        <div class="brand-mark">SP</div>
+        <div>
+          <span>Panel cliente</span>
+          <strong>ServiPagos</strong>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link" href="user-dashboard.html">
+          <span>Resumen general</span>
+          <small>01</small>
+        </a>
+        <a class="nav-link" href="facturas.html">
+          <span>Facturas y pagos</span>
+          <small>02</small>
+        </a>
+        <a class="nav-link active" href="perfil.html">
+          <span>Perfil del cliente</span>
+          <small>03</small>
+        </a>
+        <a class="nav-link" href="#profile-security">
+          <span>Seguridad</span>
+          <small>04</small>
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <h3>Estado de cuenta</h3>
+        <p data-user-account-status>El estado de tu perfil y tu cuenta aparecera aqui.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Servicios activos</h3>
+        <ul data-services-list>
+          <li>Tu servicio principal aparecera aqui.</li>
+        </ul>
+        <button class="logout-btn" type="button" data-logout>Cerrar sesion</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="welcome-copy">
+          <h1>Perfil de <span data-user-name>Cliente</span></h1>
+          <p>Rol: <span data-role-label>Cliente</span> | Correo de acceso: <span data-user-email>cliente@correo.com</span></p>
+        </div>
+
+        <div class="topbar-actions">
+          <a class="top-action nav-action" href="user-dashboard.html">Dashboard</a>
+          <a class="top-action nav-action" href="facturas.html">Facturas</a>
+          <div class="profile-chip">
+            <div class="avatar" data-user-avatar data-user-initials>CL</div>
+            <strong data-user-chip>Cliente activo</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <h2>Administra tu informacion personal y el acceso a tu cuenta.</h2>
+          <p>
+            Aqui puedes revisar tus datos de contacto, el estado de tu servicio principal,
+            tu historial general y actualizar la informacion con la que ingresas al sistema.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn link-btn" href="#profileForm">Editar perfil</a>
+            <a class="secondary-btn link-btn" href="#profile-security">Ver seguridad</a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="signal-card">
+            <span>Correo de acceso</span>
+            <strong data-user-email>cliente@correo.com</strong>
+          </div>
+          <div class="signal-card">
+            <span>Ultimo pago</span>
+            <strong data-user-last-payment>$0.00</strong>
+          </div>
+          <div class="signal-card">
+            <span>Miembro desde</span>
+            <strong data-profile-member-since>Sin registro</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Datos principales</h2>
+          <a class="section-link" href="facturas.html">Ver facturas</a>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Servicio principal</span>
+              <span class="status-tag status-blue" data-user-status>Activo</span>
+            </div>
+            <h3 data-user-service-label>Servicio</h3>
+            <p>Servicio vinculado a tu cuenta</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Suministro</span>
+              <span class="status-tag status-green">Activo</span>
+            </div>
+            <h3 data-user-supply>000000</h3>
+            <p>Codigo del servicio asignado</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Proximo vencimiento</span>
+              <span class="status-tag status-orange">Control</span>
+            </div>
+            <h3 data-user-due-date>Sin fecha</h3>
+            <p>Fecha de control de la factura actual</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Pagos registrados</span>
+              <span class="status-tag status-blue">Historial</span>
+            </div>
+            <h3 data-user-payments>0</h3>
+            <p>Total de pagos procesados en la cuenta</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block invoice-grid">
+        <article class="panel-card">
+          <h3>Resumen del perfil</h3>
+          <p>Informacion actual del cliente registrada dentro del sistema.</p>
+
+          <div class="profile-identity-card">
+            <div class="profile-avatar-large" data-profile-photo-preview data-user-initials>CL</div>
+            <div>
+              <strong data-user-name>Cliente</strong>
+              <p data-user-email>cliente@correo.com</p>
+            </div>
+          </div>
+
+          <div class="invoice-summary">
+            <div class="summary-row">
+              <span>Nombre completo</span>
+              <strong data-user-name>Cliente</strong>
+            </div>
+            <div class="summary-row">
+              <span>Documento</span>
+              <strong data-profile-document>Sin registrar</strong>
+            </div>
+            <div class="summary-row">
+              <span>Telefono</span>
+              <strong data-profile-phone>Sin registrar</strong>
+            </div>
+            <div class="summary-row">
+              <span>Ciudad</span>
+              <strong data-profile-city>Sin registrar</strong>
+            </div>
+            <div class="summary-row">
+              <span>Direccion</span>
+              <strong data-profile-address>Sin registrar</strong>
+            </div>
+            <div class="summary-row">
+              <span>Saldo actual</span>
+              <strong data-user-total-due>$0.00</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <h3>Evolucion de pagos</h3>
+          <p>La grafica resume los pagos registrados en tu cuenta durante el semestre.</p>
+
+          <div class="chart-box">
+            <strong data-user-chart-title>Sin pagos registrados todavia</strong>
+            <div class="bars" data-user-chart-bars>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Ene</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Feb</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Mar</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Abr</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>May</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Jun</small></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block dashboard-grid">
+        <article class="panel-card">
+          <h3>Editar perfil</h3>
+          <p>Actualiza tus datos de contacto. Si escribes una nueva contrasena, sera la nueva clave de acceso.</p>
+
+          <form class="admin-form" id="profileForm" novalidate>
+            <div class="form-grid">
+              <label class="inline-field">
+                <span>Nombre completo</span>
+                <input id="profileName" name="profileName" type="text" placeholder="Kevin Lopez" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Correo electronico</span>
+                <input id="profileEmail" name="profileEmail" type="email" placeholder="cliente@correo.com" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Telefono</span>
+                <input id="profilePhone" name="profilePhone" type="text" placeholder="0991234567">
+              </label>
+
+              <label class="inline-field">
+                <span>Documento</span>
+                <input id="profileDocument" name="profileDocument" type="text" placeholder="1723456789">
+              </label>
+
+              <label class="inline-field">
+                <span>Ciudad</span>
+                <input id="profileCity" name="profileCity" type="text" placeholder="Guayaquil">
+              </label>
+
+              <label class="inline-field">
+                <span>Nueva contrasena</span>
+                <input id="profilePassword" name="profilePassword" type="password" placeholder="Deja vacio para conservar la actual">
+              </label>
+
+              <label class="inline-field full-span">
+                <span>Foto de perfil</span>
+                <input id="profilePhoto" name="profilePhoto" type="file" accept="image/*">
+              </label>
+
+              <label class="inline-field full-span">
+                <span>Direccion</span>
+                <textarea id="profileAddress" name="profileAddress" rows="4" placeholder="Av. principal y calle secundaria"></textarea>
+              </label>
+            </div>
+
+            <div class="profile-photo-editor">
+              <div class="profile-avatar-large" data-profile-photo-preview data-user-initials>CL</div>
+              <div class="profile-photo-copy">
+                <strong>Vista previa de tu foto</strong>
+                <p>Sube una imagen para personalizar tu cuenta. Se guardara solo en este navegador y en este equipo.</p>
+                <button class="ghost-btn compact-btn" id="removeProfilePhotoBtn" type="button">Quitar foto actual</button>
+              </div>
+            </div>
+
+            <div class="payment-tip-card">
+              <strong>Recomendacion de seguridad</strong>
+              <p>Si cambias el correo o la contrasena, esos seran los nuevos datos para iniciar sesion la proxima vez.</p>
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-btn admin-submit" id="profileSubmitBtn" type="submit">Guardar cambios</button>
+            </div>
+            <p class="admin-feedback" id="profileFeedback" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="panel-card" id="profile-security">
+          <h3>Seguridad y cuenta</h3>
+          <p>Estado general del acceso, la cuenta y la operacion de pagos.</p>
+
+          <div class="invoice-summary">
+            <div class="summary-row">
+              <span>Rol del usuario</span>
+              <strong data-role-label>Cliente</strong>
+            </div>
+            <div class="summary-row">
+              <span>Estado de seguridad</span>
+              <strong data-profile-security-state>Protegida con contrasena</strong>
+            </div>
+            <div class="summary-row">
+              <span>Saldo pendiente</span>
+              <strong data-user-total-due>$0.00</strong>
+            </div>
+            <div class="summary-row">
+              <span>Ultima actualizacion</span>
+              <strong data-profile-updated>Sin cambios</strong>
+            </div>
+            <div class="summary-row">
+              <span>Ultimo pago registrado</span>
+              <strong data-profile-last-payment-date>Sin pagos</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total abonado</span>
+              <strong data-profile-total-history>$0.00</strong>
+            </div>
+          </div>
+
+          <div class="payment-tip-card">
+            <strong>Estado del servicio</strong>
+            <p data-profile-reminder>Tu recordatorio de servicio aparecera aqui.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

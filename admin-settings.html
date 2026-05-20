@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiPagos | Configuracion del administrador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-role="admin" data-page="settings">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand-badge">
+        <div class="brand-mark">SP</div>
+        <div>
+          <span>Panel administrador</span>
+          <strong>ServiPagos</strong>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link" href="admin-dashboard.html">
+          <span>Vista ejecutiva</span>
+          <small>01</small>
+        </a>
+        <a class="nav-link" href="admin-dashboard.html#gestion-clientes">
+          <span>Gestion de clientes</span>
+          <small>02</small>
+        </a>
+        <a class="nav-link" href="admin-dashboard.html#facturacion-admin">
+          <span>Facturacion</span>
+          <small>03</small>
+        </a>
+        <a class="nav-link active" href="admin-settings.html">
+          <span>Configuracion</span>
+          <small>04</small>
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <h3>Cuenta administrativa</h3>
+        <p data-admin-settings-summary>Gestiona el acceso principal del sistema desde esta seccion.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Controles clave</h3>
+        <ul>
+          <li>Cambiar correo de acceso</li>
+          <li>Actualizar contrasena unica</li>
+          <li>Configurar soporte operativo</li>
+        </ul>
+        <button class="logout-btn" type="button" data-logout>Cerrar sesion</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="welcome-copy">
+          <h1>Configuracion de <span data-user-name>Administrador</span></h1>
+          <p>Rol: <span data-role-label>Administrador</span> | Correo: <span data-user-email>admin@servipagos.com</span></p>
+        </div>
+
+        <div class="topbar-actions">
+          <a class="top-action nav-action" href="admin-dashboard.html">Volver al panel</a>
+          <div class="profile-chip">
+            <div class="avatar" data-admin-initials>AT</div>
+            <strong data-admin-chip>Control central</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <h2>Configura el acceso maestro y la operacion general del sistema.</h2>
+          <p>
+            Desde aqui puedes actualizar el correo administrativo, la contrasena principal
+            y los datos de contacto del responsable del sistema sin afectar la base de clientes.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn link-btn" href="#adminSettingsForm">Editar cuenta</a>
+            <a class="secondary-btn link-btn" href="#adminSecurityCard">Ver seguridad</a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="signal-card">
+            <span>Correo de acceso</span>
+            <strong data-admin-current-email>admin@servipagos.com</strong>
+          </div>
+          <div class="signal-card">
+            <span>Clientes controlados</span>
+            <strong data-admin-clients>0</strong>
+          </div>
+          <div class="signal-card">
+            <span>Actualizada</span>
+            <strong data-admin-updated-at>Sin cambios</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Indicadores del sistema</h2>
+          <a class="section-link" href="admin-dashboard.html#vista-ejecutiva">Ir al resumen</a>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Cartera total</span>
+              <span class="status-tag status-green">Actual</span>
+            </div>
+            <h3 data-admin-total-due>$0.00</h3>
+            <p>Saldo total de clientes creados</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Facturas vencidas</span>
+              <span class="status-tag status-red" data-admin-overdue-badge>0</span>
+            </div>
+            <h3 data-admin-overdue>0</h3>
+            <p>Cuentas que requieren seguimiento</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Servicios activos</span>
+              <span class="status-tag status-blue">Catalogo</span>
+            </div>
+            <h3 data-admin-services>0</h3>
+            <p>Tipos de servicio registrados</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Correo de soporte</span>
+              <span class="status-tag status-orange">Canal</span>
+            </div>
+            <h3 data-admin-support-email>sin-soporte@correo.com</h3>
+            <p>Direccion operativa principal</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block dashboard-grid">
+        <article class="panel-card">
+          <h3>Cuenta administrativa</h3>
+          <p>Actualiza los datos del administrador principal. Para guardar cambios debes confirmar tu contrasena actual.</p>
+
+          <form class="admin-form" id="adminSettingsForm" novalidate>
+            <div class="form-grid">
+              <label class="inline-field">
+                <span>Nombre del administrador</span>
+                <input id="adminName" name="adminName" type="text" placeholder="Ana Torres" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Correo de acceso</span>
+                <input id="adminEmail" name="adminEmail" type="email" placeholder="admin@servipagos.com" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Telefono administrativo</span>
+                <input id="adminPhone" name="adminPhone" type="text" placeholder="0987654321">
+              </label>
+
+              <label class="inline-field">
+                <span>Cargo o rol interno</span>
+                <input id="adminPosition" name="adminPosition" type="text" placeholder="Administrador general">
+              </label>
+
+              <label class="inline-field">
+                <span>Correo de soporte</span>
+                <input id="adminSupportEmail" name="adminSupportEmail" type="email" placeholder="soporte@servipagos.com">
+              </label>
+
+              <label class="inline-field">
+                <span>Contrasena actual</span>
+                <input id="adminCurrentPassword" name="adminCurrentPassword" type="password" placeholder="Obligatoria para guardar" required>
+              </label>
+
+              <label class="inline-field full-span">
+                <span>Nueva contrasena</span>
+                <input id="adminNewPassword" name="adminNewPassword" type="password" placeholder="Deja vacio para conservar la contrasena actual">
+                <small class="field-hint">Si la cambias, la nueva clave sera la unica valida para el acceso administrativo.</small>
+              </label>
+            </div>
+
+            <div class="payment-tip-card">
+              <strong>Seguridad del acceso maestro</strong>
+              <p>Evita compartir esta cuenta. Este formulario no modifica clientes; solo cambia la cuenta administrativa principal.</p>
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-btn admin-submit" id="adminSettingsSubmitBtn" type="submit">Guardar configuracion</button>
+            </div>
+            <p class="admin-feedback" id="adminSettingsFeedback" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="panel-card" id="adminSecurityCard">
+          <h3>Resumen de seguridad</h3>
+          <p>Estado general de la cuenta administrativa y el sistema local.</p>
+
+          <div class="invoice-summary">
+            <div class="summary-row">
+              <span>Administrador</span>
+              <strong data-user-name>Administrador</strong>
+            </div>
+            <div class="summary-row">
+              <span>Correo activo</span>
+              <strong data-admin-current-email>admin@servipagos.com</strong>
+            </div>
+            <div class="summary-row">
+              <span>Telefono</span>
+              <strong data-admin-phone-display>Sin registrar</strong>
+            </div>
+            <div class="summary-row">
+              <span>Cargo</span>
+              <strong data-admin-position-display>Administrador general</strong>
+            </div>
+            <div class="summary-row">
+              <span>Miembro desde</span>
+              <strong data-admin-created-at>Sin registro</strong>
+            </div>
+            <div class="summary-row">
+              <span>Ultima actualizacion</span>
+              <strong data-admin-updated-at>Sin cambios</strong>
+            </div>
+          </div>
+
+          <div class="payment-tip-card">
+            <strong>Estado del sistema</strong>
+            <p data-admin-settings-summary>Gestiona el acceso principal del sistema desde esta seccion.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

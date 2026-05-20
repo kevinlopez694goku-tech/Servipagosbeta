@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiPagos | Dashboard administrador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-role="admin" data-page="dashboard">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand-badge">
+        <div class="brand-mark">SP</div>
+        <div>
+          <span>Panel administrador</span>
+          <strong>ServiPagos</strong>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link active" href="#vista-ejecutiva">
+          <span>Vista ejecutiva</span>
+          <small>01</small>
+        </a>
+        <a class="nav-link" href="#gestion-clientes">
+          <span>Gestion de clientes</span>
+          <small>02</small>
+        </a>
+        <a class="nav-link" href="#facturacion-admin">
+          <span>Facturacion</span>
+          <small>03</small>
+        </a>
+        <a class="nav-link" href="admin-settings.html">
+          <span>Configuracion</span>
+          <small>04</small>
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <h3>Resumen operativo</h3>
+        <p data-admin-summary>El sistema procesa pagos de luz, agua e internet desde una sola consola con monitoreo continuo.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Acciones rapidas</h3>
+        <ul>
+          <li>Registrar clientes reales</li>
+          <li>Asignar contrasenas de acceso</li>
+          <li>Monitorear deuda pendiente</li>
+        </ul>
+        <button class="logout-btn" type="button" data-logout>Cerrar sesion</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="welcome-copy">
+          <h1>Bienvenida, <span data-user-name>Ana Torres</span></h1>
+          <p>Rol: <span data-role-label>Administrador</span> | Correo: <span data-user-email>admin@servipagos.com</span></p>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="search-pill">Buscar cliente, contrato, factura o reporte</div>
+          <a class="top-action nav-action" href="admin-settings.html">Configuracion</a>
+          <button class="top-action" type="button" data-demo-action="report">Generar reporte</button>
+          <div class="profile-chip">
+            <div class="avatar" data-admin-initials>AT</div>
+            <strong data-admin-chip>Control central</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero-card" id="vista-ejecutiva">
+        <div class="hero-copy">
+          <h2>Administra operaciones, clientes y pagos en tiempo real.</h2>
+          <p>
+            Este panel concentra indicadores financieros, incidencias del sistema,
+            cartera pendiente y herramientas para registrar cuentas de clientes reales.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" type="button" data-demo-action="report">Emitir reporte</button>
+            <button class="secondary-btn" type="button" data-demo-action="client">Revisar clientes</button>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="signal-card">
+            <span>Cartera total</span>
+            <strong data-admin-revenue>$0.00</strong>
+          </div>
+          <div class="signal-card">
+            <span>Clientes registrados</span>
+            <strong data-admin-clients>0</strong>
+          </div>
+          <div class="signal-card">
+            <span>Alertas criticas</span>
+            <strong data-admin-alerts>00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Indicadores administrativos</h2>
+          <a class="section-link" href="#gestion-clientes">Abrir gestion</a>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Cartera por cobrar</span>
+              <span class="status-tag status-green">Actual</span>
+            </div>
+            <h3 data-admin-total-due>$0.00</h3>
+            <p>Monto acumulado en cuentas creadas</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Clientes activos</span>
+              <span class="status-tag status-blue" data-admin-active-badge>0</span>
+            </div>
+            <h3 data-admin-active>0</h3>
+            <p>Cuentas registradas por el administrador</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Facturas vencidas</span>
+              <span class="status-tag status-red" data-admin-overdue-badge>0</span>
+            </div>
+            <h3 data-admin-overdue>0</h3>
+            <p>Requieren seguimiento prioritario</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Servicios monitoreados</span>
+              <span class="status-tag status-orange">Catalogo</span>
+            </div>
+            <h3 data-admin-services>0</h3>
+            <p>Tipos de servicios registrados por clientes</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block dashboard-grid" id="gestion-clientes">
+        <article class="panel-card">
+          <h3 id="clientFormTitle">Registrar nuevo cliente</h3>
+          <p id="clientFormText">Crea cuentas reales para que luego puedan iniciar sesion con su propio correo y contrasena.</p>
+
+          <form class="admin-form" id="clientForm" novalidate>
+            <input id="clientId" name="clientId" type="hidden">
+            <div class="form-grid">
+              <label class="inline-field">
+                <span>Nombre completo</span>
+                <input id="clientName" name="clientName" type="text" placeholder="Maria Gomez" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Correo electronico</span>
+                <input id="clientEmail" name="clientEmail" type="email" placeholder="cliente@correo.com" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Contrasena</span>
+                <input id="clientPassword" name="clientPassword" type="text" placeholder="Clave del cliente" required>
+                <small class="field-hint" id="clientPasswordHint">Define una contrasena segura para el nuevo cliente.</small>
+              </label>
+
+              <label class="inline-field">
+                <span>Servicio principal</span>
+                <select id="clientService" name="clientService">
+                  <option value="Energia electrica">Energia electrica</option>
+                  <option value="Agua potable">Agua potable</option>
+                  <option value="Internet hogar">Internet hogar</option>
+                  <option value="Gas domiciliario">Gas domiciliario</option>
+                </select>
+              </label>
+
+              <label class="inline-field">
+                <span>Monto pendiente</span>
+                <input id="clientAmount" name="clientAmount" type="number" min="0" step="0.01" placeholder="42.10" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Fecha de vencimiento</span>
+                <input id="clientDueDate" name="clientDueDate" type="date" required>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-btn admin-submit" id="clientSubmitBtn" type="submit">Guardar cliente</button>
+              <button class="ghost-btn hidden-btn" id="cancelEditBtn" type="button">Cancelar edicion</button>
+            </div>
+            <p class="admin-feedback" id="clientFeedback" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="panel-card">
+          <h3>Clientes registrados</h3>
+          <p>Esta lista se llena solo con cuentas creadas por el administrador.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Servicio</th>
+                  <th>Monto</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="clientsTableBody">
+                <tr>
+                  <td colspan="5">
+                    <div class="empty-state">
+                      Todavia no hay clientes registrados. Usa el formulario para crear la primera cuenta.
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block dashboard-grid" id="facturacion-admin">
+        <article class="panel-card">
+          <h3>Tendencia de recaudacion</h3>
+          <p>Comparativo mensual del volumen de pagos procesados.</p>
+
+          <div class="chart-box">
+            <strong>Meta mensual vinculada a la cartera registrada</strong>
+            <div class="bars">
+              <div class="bar" style="height: 32%;"><span>$12k</span><small>Ene</small></div>
+              <div class="bar" style="height: 40%;"><span>$18k</span><small>Feb</small></div>
+              <div class="bar" style="height: 48%;"><span>$21k</span><small>Mar</small></div>
+              <div class="bar" style="height: 56%;"><span>$26k</span><small>Abr</small></div>
+              <div class="bar" style="height: 62%;"><span>$31k</span><small>May</small></div>
+              <div class="bar" style="height: 70%;"><span>$37k</span><small>Jun</small></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <h3>Alertas de prioridad</h3>
+          <p data-admin-notification-summary>Casos que requieren atencion del administrador.</p>
+
+          <div class="notice-list" data-admin-notifications-list>
+            <div class="empty-state">Las notificaciones del sistema apareceran aqui.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block" id="alertas-admin">
+        <article class="panel-card">
+          <div class="section-head">
+            <div>
+              <h3>Centro de notificaciones</h3>
+              <p data-admin-live-feed>
+                Cada cliente creado desde este panel queda almacenado en el navegador y puede iniciar sesion
+                con las credenciales que le asignaste. Ya no aparecen clientes por defecto.
+              </p>
+            </div>
+            <button class="ghost-btn compact-btn" type="button" data-reset-admin-notifications>Restaurar alertas</button>
+          </div>
+
+          <div class="notice-list" data-admin-notifications-history>
+            <div class="empty-state">Aqui se mostrara el estado de las notificaciones administrativas.</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

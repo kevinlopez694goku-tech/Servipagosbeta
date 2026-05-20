@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiPagos | Dashboard cliente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-role="user">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand-badge">
+        <div class="brand-mark">SP</div>
+        <div>
+          <span>Panel cliente</span>
+          <strong>ServiPagos</strong>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link active" href="user-dashboard.html">
+          <span>Resumen general</span>
+          <small>01</small>
+        </a>
+        <a class="nav-link" href="facturas.html">
+          <span>Facturas y pagos</span>
+          <small>02</small>
+        </a>
+        <a class="nav-link" href="perfil.html">
+          <span>Perfil del cliente</span>
+          <small>03</small>
+        </a>
+        <a class="nav-link" href="#user-notifications">
+          <span>Notificaciones</span>
+          <small>04</small>
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <h3>Estado de cuenta</h3>
+        <p data-user-account-status>Tu estado de cuenta actualizado aparecera aqui.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Servicios activos</h3>
+        <ul data-services-list>
+          <li>Tu servicio principal aparecera aqui.</li>
+        </ul>
+        <button class="logout-btn" type="button" data-logout>Cerrar sesion</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="welcome-copy">
+          <h1>Hola, <span data-user-name>Cliente</span></h1>
+          <p>Rol: <span data-role-label>Cliente</span> | Correo: <span data-user-email>cliente@correo.com</span></p>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="search-pill">Buscar factura, numero de suministro o servicio</div>
+          <button class="top-action" type="button" data-open-payment>Pago rapido</button>
+          <a class="top-action nav-action" href="perfil.html">Mi perfil</a>
+          <div class="profile-chip">
+            <div class="avatar" data-user-avatar data-user-initials>CL</div>
+            <strong data-user-chip>Cliente activo</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <h2>Controla todos tus servicios basicos desde un mismo lugar.</h2>
+          <p>
+            Revisa montos pendientes, fechas de vencimiento, historial de transacciones
+            y alertas importantes antes de realizar tus pagos.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" type="button" data-open-payment>Pagar servicios</button>
+            <button class="secondary-btn" type="button" data-demo-action="alert">Ver alertas</button>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="signal-card">
+            <span>Deuda total del mes</span>
+            <strong data-user-total-due>$0.00</strong>
+          </div>
+          <div class="signal-card">
+            <span>Pagos completados</span>
+            <strong data-user-payments>0</strong>
+          </div>
+          <div class="signal-card">
+            <span>Descuento disponible</span>
+            <strong data-user-discount>0%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Indicadores del cliente</h2>
+          <a class="section-link" href="facturas.html">Ver detalle</a>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span data-user-service-label>Servicio principal</span>
+              <span class="status-tag status-orange" data-user-status>Activo</span>
+            </div>
+            <h3 data-user-main-amount>$0.00</h3>
+            <p data-user-due-date>Vencimiento pendiente de definir</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Contrato</span>
+              <span class="status-tag status-blue">En revision</span>
+            </div>
+            <h3 data-user-supply>000000</h3>
+            <p>Codigo asignado por el administrador</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Ultimo pago</span>
+              <span class="status-tag status-green">Aprobado</span>
+            </div>
+            <h3 data-user-last-payment>$0.00</h3>
+            <p>Ultimo valor registrado en la cuenta</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Alertas nuevas</span>
+              <span class="status-tag status-red" data-user-alert-badge>Activas</span>
+            </div>
+            <h3 data-user-alerts>01</h3>
+            <p>Alertas generadas segun tu estado</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block dashboard-grid" id="payment-panel">
+        <article class="panel-card">
+          <h3>Pagos pendientes</h3>
+          <p>Servicios que puedes pagar ahora mismo desde tu cuenta.</p>
+
+          <div class="payment-list" data-user-payment-list>
+            <div class="empty-state">Tu servicio y pago pendiente apareceran aqui.</div>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <h3>Pago con tarjeta ficticia</h3>
+          <p>Simula un pago seguro con tarjeta. Puedes usar numeros ficticios para probar el flujo.</p>
+
+          <form class="payment-form" id="paymentForm" novalidate>
+            <div class="payment-form-grid">
+              <label class="inline-field">
+                <span>Titular de la tarjeta</span>
+                <input id="cardHolder" name="cardHolder" type="text" placeholder="Carlos Mendoza" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Numero de tarjeta</span>
+                <input id="cardNumber" name="cardNumber" type="text" inputmode="numeric" maxlength="19" placeholder="4242 4242 4242 4242" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Expiracion</span>
+                <input id="cardExpiry" name="cardExpiry" type="text" inputmode="numeric" maxlength="5" placeholder="12/29" required>
+              </label>
+
+              <label class="inline-field">
+                <span>CVV</span>
+                <input id="cardCvv" name="cardCvv" type="text" inputmode="numeric" maxlength="4" placeholder="123" required>
+              </label>
+
+              <label class="inline-field">
+                <span>Monto a pagar</span>
+                <input id="paymentAmount" name="paymentAmount" type="number" min="1" step="0.01" placeholder="25.00" required>
+              </label>
+
+              <div class="payment-tip-card">
+                <strong>Tarjeta demo</strong>
+                <p>Usa un numero ficticio como `4242 4242 4242 4242` para simular pagos.</p>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-btn admin-submit" id="paymentSubmitBtn" type="submit">Procesar pago</button>
+            </div>
+            <p class="admin-feedback" id="paymentFeedback" aria-live="polite"></p>
+          </form>
+        </article>
+      </section>
+
+      <section class="section-block dashboard-grid">
+        <article class="panel-card">
+          <h3>Actividad reciente</h3>
+          <p>Movimientos y notificaciones de tu cuenta.</p>
+
+          <div class="activity-list" data-user-activity-list>
+            <div class="activity-item">
+              <div class="icon-pill icon-admin">OK</div>
+              <div>
+                <strong>Acceso correcto</strong>
+                <p>Tu cuenta fue validada con las credenciales asignadas por el administrador.</p>
+              </div>
+              <span class="status-tag status-green">Hoy</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="icon-pill icon-water">AV</div>
+              <div>
+                <strong>Servicio vinculado</strong>
+                <p>El servicio principal registrado en tu cuenta aparece en este panel.</p>
+              </div>
+              <span class="status-tag status-blue">Activo</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="icon-pill icon-energy">AL</div>
+              <div>
+                <strong>Recordatorio enviado</strong>
+                <p data-user-reminder>Tu proximo vencimiento aparecera aqui.</p>
+              </div>
+              <span class="status-tag status-orange">Pendiente</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel-card" id="user-notifications">
+          <div class="section-head">
+            <div>
+              <h3>Notificaciones automaticas</h3>
+              <p data-user-notification-summary>Tus notificaciones automaticas apareceran aqui.</p>
+            </div>
+            <button class="ghost-btn compact-btn" type="button" data-reset-user-notifications>Restaurar</button>
+          </div>
+
+          <div class="notice-list" data-user-notifications-list>
+            <div class="empty-state">No hay notificaciones nuevas para tu cuenta.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block dashboard-grid" id="payment-history">
+        <article class="panel-card">
+          <h3>Historial de pagos del semestre</h3>
+          <p>La grafica se actualiza automaticamente segun los pagos que vayas realizando.</p>
+
+          <div class="chart-box">
+            <strong data-user-chart-title>Sin pagos registrados todavia</strong>
+            <div class="bars" data-user-chart-bars>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Ene</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Feb</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Mar</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Abr</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>May</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Jun</small></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <h3>Ultimos pagos realizados</h3>
+          <p>Revisa los movimientos recientes procesados con tu tarjeta ficticia.</p>
+
+          <div class="notice-list" data-user-history-list>
+            <div class="empty-state">Tus pagos procesados apareceran aqui.</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

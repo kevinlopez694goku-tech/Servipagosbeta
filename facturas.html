@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiPagos | Facturas detalladas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-role="user" data-page="invoices">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand-badge">
+        <div class="brand-mark">SP</div>
+        <div>
+          <span>Panel cliente</span>
+          <strong>ServiPagos</strong>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link" href="user-dashboard.html">
+          <span>Resumen general</span>
+          <small>01</small>
+        </a>
+        <a class="nav-link active" href="facturas.html">
+          <span>Facturas y pagos</span>
+          <small>02</small>
+        </a>
+        <a class="nav-link" href="perfil.html">
+          <span>Perfil del cliente</span>
+          <small>03</small>
+        </a>
+        <a class="nav-link" href="#historial-facturas">
+          <span>Historial</span>
+          <small>04</small>
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <h3>Cliente activo</h3>
+        <p data-user-account-status>Tu estado de facturacion aparecera aqui.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Acciones</h3>
+        <ul data-services-list>
+          <li>Tu servicio principal aparecera aqui.</li>
+        </ul>
+        <button class="logout-btn" type="button" data-logout>Cerrar sesion</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="welcome-copy">
+          <h1>Facturas de <span data-user-name>Cliente</span></h1>
+          <p>Correo: <span data-user-email>cliente@correo.com</span> | Rol: <span data-role-label>Cliente</span></p>
+        </div>
+
+        <div class="topbar-actions">
+          <a class="top-action nav-action" href="user-dashboard.html">Volver al dashboard</a>
+          <a class="top-action nav-action" href="perfil.html">Mi perfil</a>
+          <a class="top-action nav-action" href="user-dashboard.html#payment-panel">Ir a pagar</a>
+          <div class="profile-chip">
+            <div class="avatar" data-user-avatar data-user-initials>CL</div>
+            <strong data-user-chip>Cliente activo</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero-card" id="resumen-factura">
+        <div class="hero-copy">
+          <h2>Modulo de facturas detallado del cliente.</h2>
+          <p>
+            Consulta numero de factura, servicio asociado, periodo facturado, vencimiento,
+            estado actual, desglose de cargos e historial de pagos realizados.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn link-btn" href="user-dashboard.html#payment-panel">Pagar factura</a>
+            <a class="secondary-btn link-btn" href="#historial-facturas">Ver historial</a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="signal-card">
+            <span>Numero de factura</span>
+            <strong data-invoice-number>FAC-0000</strong>
+          </div>
+          <div class="signal-card">
+            <span>Estado de la factura</span>
+            <strong data-invoice-status-text>Pendiente</strong>
+          </div>
+          <div class="signal-card">
+            <span>Total facturado</span>
+            <strong data-invoice-total>$0.00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Resumen de la factura</h2>
+          <a class="section-link" href="user-dashboard.html#payment-panel">Procesar pago</a>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Servicio</span>
+              <span class="status-tag status-blue" data-user-status>Activo</span>
+            </div>
+            <h3 data-user-service-label>Servicio principal</h3>
+            <p data-user-supply>000000</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Fecha de emision</span>
+              <span class="status-tag status-green">Actual</span>
+            </div>
+            <h3 data-invoice-issued>01/01/2026</h3>
+            <p>Generada automaticamente por el sistema</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Fecha de vencimiento</span>
+              <span class="status-tag status-orange">Control</span>
+            </div>
+            <h3 data-user-due-date>Sin fecha</h3>
+            <p>Fecha limite para pagar sin recargos</p>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Saldo pendiente</span>
+              <span class="status-tag status-red" data-invoice-status-badge>Pendiente</span>
+            </div>
+            <h3 data-user-total-due>$0.00</h3>
+            <p>Valor actual por cancelar</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block invoice-grid">
+        <article class="panel-card">
+          <h3>Desglose de cargos</h3>
+          <p>Composicion estimada de la factura asociada al servicio principal.</p>
+
+          <div class="invoice-breakdown" data-invoice-breakdown>
+            <div class="empty-state">El desglose de cargos se mostrara aqui.</div>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <h3>Ficha de facturacion</h3>
+          <p>Informacion clave del documento generado para tu servicio.</p>
+
+          <div class="invoice-summary">
+            <div class="summary-row">
+              <span>Cliente</span>
+              <strong data-user-name>Cliente</strong>
+            </div>
+            <div class="summary-row">
+              <span>Correo</span>
+              <strong data-user-email>cliente@correo.com</strong>
+            </div>
+            <div class="summary-row">
+              <span>Periodo</span>
+              <strong data-invoice-period>Periodo actual</strong>
+            </div>
+            <div class="summary-row">
+              <span>Ultimo pago</span>
+              <strong data-user-last-payment>$0.00</strong>
+            </div>
+            <div class="summary-row">
+              <span>Pagos registrados</span>
+              <strong data-user-payments>0</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block invoice-grid">
+        <article class="panel-card">
+          <h3>Evolucion de facturacion</h3>
+          <p>La grafica combina los pagos del cliente en los ultimos meses.</p>
+
+          <div class="chart-box">
+            <strong data-user-chart-title>Sin pagos registrados todavia</strong>
+            <div class="bars" data-user-chart-bars>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Ene</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Feb</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Mar</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Abr</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>May</small></div>
+              <div class="bar" style="height: 12%;"><span>$0</span><small>Jun</small></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <h3>Ultimo comprobante</h3>
+          <p>Descarga rapidamente el recibo mas reciente emitido por el sistema.</p>
+
+          <div class="receipt-box" data-latest-receipt-box>
+            <div class="empty-state">Cuando registres pagos aqui aparecera el comprobante mas reciente.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block">
+        <article class="panel-card">
+          <h3>Historial de pagos</h3>
+          <p id="historial-facturas">Ultimos movimientos acreditados en la factura.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Servicio</th>
+                  <th>Tarjeta</th>
+                  <th>Monto</th>
+                  <th>Estado</th>
+                  <th>Comprobante</th>
+                </tr>
+              </thead>
+              <tbody data-invoice-history-table>
+                <tr>
+                  <td colspan="6">
+                    <div class="empty-state">Aun no hay pagos registrados para esta factura.</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
